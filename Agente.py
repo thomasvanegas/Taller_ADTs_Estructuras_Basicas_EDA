@@ -11,3 +11,6 @@ class Agente():
     """
     def __init__ (self):
         self._id: int = Persona._contador_ids
+        
+        # incrementando el contador de ids
+        Persona._contador_ids += 1
