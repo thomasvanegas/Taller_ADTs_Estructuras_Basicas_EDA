@@ -38,13 +38,13 @@ class Persona:
     def getTiempoServicio(self):
         return self._tiempo_servicio
     
-    def setTiempoServicio(self, tiempo_servicio):
+    def setTiempoServicio(self, tiempo_servicio: int):
         self._tiempo_servicio = tiempo_servicio
 
     def getTiempoEsperaFila(self):
         return self._tiempo_espera_fila
     
-    def setTiempoEsperaFila(self, tiempo_espera_fila):
+    def setTiempoEsperaFila(self, tiempo_espera_fila: int):
         self._tiempo_espera_fila = tiempo_espera_fila
 
     # Sobrecargando el método print()
