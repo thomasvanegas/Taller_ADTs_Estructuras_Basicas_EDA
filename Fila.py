@@ -13,9 +13,13 @@ class Fila:
 
     def enqueue(self, persona: Persona):
         """
-            Se agrega una Persona al final de la fila
+            Se agrega una Persona al final de la fila. 
         """
-        self._fila_personas.append(persona)
+        if isinstance(persona, Persona):
+            self._fila_personas.append(persona)
+        else:
+            return "El argumento no es un objeto de la clase Persona"
+
 
     def dequeue(self) -> Persona:
         """
