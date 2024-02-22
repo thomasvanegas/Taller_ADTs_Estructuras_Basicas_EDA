@@ -11,7 +11,7 @@ class Persona:
     """
     def __init__ (self):
         self._id: int = Persona._contador_ids
-        self._tiempo_llegada: int = 0
+        self._tiempo_llegada: int = 0 #random.randint(0, 28800)
         self._tiempo_servicio: int = random.randint(300, 3600)
         self._tiempo_espera_fila: int = 0
         

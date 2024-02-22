@@ -47,3 +47,10 @@ class Fila:
             Reutiliza el iterador de la lista.
         """
         return iter(self._fila_personas)
+
+    def __str__(self):
+        return f"""
+                    --- Información de la FILA ---
+                    Estado: {'Vacía' if self.isEmpty() else 'Ocupada'}
+                    Número de personas: {self.size()}
+                """
