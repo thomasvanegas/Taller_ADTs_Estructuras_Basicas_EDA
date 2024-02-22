@@ -1,6 +1,6 @@
 # Importación de paquetes y clases
 from pickle import FALSE
-from Persona import Persona
+import random
 
 class Agente():
     
@@ -11,12 +11,12 @@ class Agente():
     Constructor
     """
     def __init__ (self):
-        self._id: int = Persona._contador_ids
+        self._id: int = self._contador_ids
         self.ocupado = False
-        self.tiempo_ocupado = 0
+        self.tiempo_ocupado = random.randint(1, 28800)
 
         # incrementando el contador de ids
-        Persona._contador_ids += 1
+        self._contador_ids += 1
 
     """
     Construcción de los metodos getters y setters para garantizar el encapsulamiento
@@ -27,7 +27,7 @@ class Agente():
     def setId(self):
         self._id = Persona._contador_ids
         # incrementando el contador de ids
-        Persona._contador_ids += 1
+        self._contador_ids += 1
     
     def getOcupado(self):
         return self._ocupado
@@ -36,7 +36,7 @@ class Agente():
         self._ocupado = ocupado
     
     def getTiempoOcupado(self):
-        return self._tiempo_servicio
+        return self.tiempo_ocupado
     
     def setTiempoOcupado(self, tiempo_ocupado: int):
         self._tiempo_ocupado = tiempo_ocupado
@@ -44,6 +44,6 @@ class Agente():
     # Sobrecargando el método print()
     def __str__(self) -> str:
         return f"""
-                Soy el agente con id: {self.id},
+                Soy el agente con id: {self._id},
                 y mi tiempo total ocupado fue: {self.tiempo_ocupado}
                 """
