@@ -8,10 +8,14 @@ from Fila import Fila
 if __name__ == "__main__":
     # Instanciamiento de clases
     f = Fila()
-    p1 = Persona()
-    p2 = Persona()
+    
+    # Creación de personas
+    for i in range(10):
+        persona = Persona()
+        f.enqueue(persona)
     
     # Pruebas al método __str__
-    print(p1)
-    print(p2)
+    for persona in f:
+        print(persona)
+
     print(f)
