@@ -4,7 +4,9 @@ from Agente import Agente
 from Fila import Fila
 
 # Funciones optimizacion de agentes
-def calcularTiempoEsperaFilaPromedio(f: list[Persona]):
+def calcularTiempoEsperaFilaPromedio(f: list[Persona]) -> int:
+
+    # f <=> fila
 
     tiempos: list[int] = []
     sumatoria = 0
@@ -21,9 +23,9 @@ def calcularTiempoEsperaFilaPromedio(f: list[Persona]):
 
     promedio = sumatoria / len(tiempos)
 
-        # list -> numpy array
-        # array = np.array(tiempo_espera)
-        # promedio = np.mean(array)
+    # list -> numpy array
+    # array = np.array(tiempo_espera)
+    # promedio = np.mean(array)
 
     print(f"El promedio de los tiempos de espera en la fila es: {promedio}")
 
@@ -44,7 +46,10 @@ def calcularTiempoOcupacionAgentePromedio(a: list[Agente]):
 
             promedio = sumatoria / len(tiempos)
 
-    print(f"El promedio de tiempo ocupado de los agentes es: {promedio}")
+        else:
+            print("El objeto pasado como agente, no es una instancia de la clase Agente")
+        
+        print(f"El promedio de tiempo ocupado de los agentes es: {promedio}")
 
 
 
@@ -64,13 +69,23 @@ if __name__ == "__main__":
     
     # Creación de M personas
     for i in range(m):
-        persona = Persona()
+        tiempo_llegada = int(input(f"Digite el tiempo de llegada de la persona {i + 1}: [0, 28800] -> "))
+        tiempo_espera_fila = int(input(f"Digite el tiempo de espera en la fila de la persona {i + 1}: [1, 1800] -> "))
+        persona = Persona(tiempo_llegada, tiempo_espera_fila)
         f.enqueue(persona)
     
     # Creacion de N agentes
     for i in range(n):
         agente = Agente()
         agentes.append(agente)
+
+
+    # --- ORDENAMIENTO DE LAS PERSONAS EN LA FILA POR TIEMPO DE LLEGADA ---
+    fila_ordenada = sorted(f, key= lambda x: x.getTiempoLlegada())
+
+    # Imprimiendo la fila ordenada por tiempo de llegada
+    for persona in fila_ordenada:
+        print(f"\nSoy la persona con id: {persona.getId()} y mi tiempo de llegada fue: {persona.getTiempoLlegada()}\n")
 
     # Pruebas al método __str__ de la clase Persona
     for persona in f:

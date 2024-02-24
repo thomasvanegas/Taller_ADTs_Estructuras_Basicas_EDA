@@ -11,12 +11,12 @@ class Agente():
     Constructor
     """
     def __init__ (self):
-        self._id: int = self._contador_ids
+        self._id: int = Agente._contador_ids
         self.ocupado = False
         self.tiempo_ocupado = random.randint(1, 28800)
 
         # incrementando el contador de ids
-        self._contador_ids += 1
+        Agente._contador_ids += 1
 
     """
     Construcción de los metodos getters y setters para garantizar el encapsulamiento

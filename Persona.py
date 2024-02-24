@@ -9,11 +9,11 @@ class Persona:
     """
     Constructor
     """
-    def __init__ (self):
+    def __init__ (self, tiempo_llegada: int, tiempo_espera_fila: int):
         self._id: int = Persona._contador_ids
-        self._tiempo_llegada: int = random.randint(0, 28800)
+        self._tiempo_llegada: int = tiempo_llegada #random.randint(0, 28800)
         self._tiempo_servicio: int = random.randint(300, 3600)
-        self._tiempo_espera_fila: int = random.randint(1, 1800)
+        self._tiempo_espera_fila: int = tiempo_espera_fila #random.randint(1, 1800)
         
         # incrementando el contador de ids
         Persona._contador_ids += 1
